@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # local
+    'users',
+    'restaurants',
+    'world',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +79,13 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'demo',
-        'USER' : 'demo_user',
-        'PASSWORD' : '1234',
+        "ENGINE": "django.contrib.gis.db.backends.postgis",
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        # 'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
@@ -123,3 +130,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# local
+GDAL_LIBRARY_PATH = r"C:\OSGeo4W\bin\gdal309.dll"
+GEOS_LIBRARY_PATH=r"C:\OSGeo4W\bin\geos_c.dll"
